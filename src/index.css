@@ -1,0 +1,167 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* BBA Portfolio Design System - Dark Mode with Glassmorphism
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Dark Theme Base Colors */
+    --background: 222 47% 6%;
+    --foreground: 220 15% 96%;
+
+    /* Glass Morphism Base */
+    --glass-primary: 222 47% 8%;
+    --glass-secondary: 235 40% 12%;
+    --glass-border: 220 30% 25%;
+    
+    /* Professional Color Palette */
+    --primary: 235 70% 65%;
+    --primary-foreground: 220 15% 96%;
+    --primary-glow: 235 70% 75%;
+    
+    --secondary: 220 30% 20%;
+    --secondary-foreground: 220 15% 96%;
+    
+    --accent: 45 90% 70%;
+    --accent-foreground: 222 47% 6%;
+    --accent-glow: 45 90% 80%;
+    
+    --muted: 220 20% 15%;
+    --muted-foreground: 220 15% 65%;
+    
+    --card: 222 47% 8%;
+    --card-foreground: 220 15% 96%;
+    
+    --popover: 222 47% 8%;
+    --popover-foreground: 220 15% 96%;
+    
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 220 15% 96%;
+    
+    --border: 220 30% 20%;
+    --input: 220 30% 15%;
+    --ring: 235 70% 65%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(235, 70%, 65%) 0%, hsl(260, 60%, 55%) 100%);
+    --gradient-secondary: linear-gradient(135deg, hsl(220, 30%, 20%) 0%, hsl(235, 40%, 12%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(45, 90%, 70%) 0%, hsl(35, 85%, 65%) 100%);
+    --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    
+    /* Shadows & Glows */
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 30px hsl(235, 70%, 65%, 0.3);
+    --shadow-accent-glow: 0 0 20px hsl(45, 90%, 70%, 0.4);
+    
+    /* Glass Effects */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border-color: rgba(255, 255, 255, 0.1);
+    --glass-hover-bg: rgba(255, 255, 255, 0.08);
+    
+    /* Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 1rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Effects */
+  .glass-card {
+    @apply bg-[var(--glass-bg)] backdrop-blur-xl border border-[var(--glass-border-color)] shadow-[var(--shadow-glass)];
+  }
+  
+  .glass-card-hover {
+    @apply glass-card hover:bg-[var(--glass-hover-bg)] transition-[var(--transition-smooth)];
+  }
+  
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+  
+  .gradient-accent {
+    background: var(--gradient-accent);
+  }
+  
+  .gradient-glass {
+    background: var(--gradient-glass);
+  }
+  
+  .glow-primary {
+    box-shadow: var(--shadow-glow);
+  }
+  
+  .glow-accent {
+    box-shadow: var(--shadow-accent-glow);
+  }
+  
+  /* Animation Classes */
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+    opacity: 0;
+    transform: scale(0.9);
+  }
+}
+
+@layer utilities {
+  .text-gradient-primary {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .text-gradient-accent {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
