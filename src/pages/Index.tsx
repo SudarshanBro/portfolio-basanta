@@ -1,20 +1,21 @@
-// In your pages/Index.tsx file
-import { Navigation } from '@/components/Navigation';
-import { Hero } from '@/components/Hero';
-import { Education } from '@/components/Education';
-import { RecentActivity } from '@/components/RecentActivity';
-import { Hobbies } from '@/components/Hobbies';
-import { Gallery } from '@/components/Gallery';
+import React from 'react';
 
+// Test with a simple component first to isolate the issue
 const Index = () => {
+  console.log('Index component is rendering'); // Add this for debugging
+  
   return (
-    <div>
+    <div className="min-h-screen bg-gray-100">
+      <h1>Test - App is working!</h1>
+      {/* Temporarily comment out other components to test basic functionality */}
+      {/*
       <Navigation />
       <Hero />
       <Education />
       <Hobbies />
       <Gallery />
       <RecentActivity />
+      */}
     </div>
   );
 };
