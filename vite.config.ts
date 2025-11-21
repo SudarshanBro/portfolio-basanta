@@ -2,10 +2,9 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import path from 'path'
 
-// Replace 'your-repo-name' with your actual repository name
 export default defineConfig({
   plugins: [react()],
-  base: '/portfolio-basanta', // This is crucial for GitHub Pages
+  base: '/portfolio-basanta/', // ensure assets resolve on GitHub Pages
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
